@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 
@@ -7,7 +8,6 @@ function Login() {
 
       {/* Background Blur */}
       <div className="absolute w-96 h-96 bg-blue-300 rounded-full blur-3xl opacity-20 -top-24 -left-20"></div>
-
       <div className="absolute w-80 h-80 bg-indigo-300 rounded-full blur-3xl opacity-20 bottom-0 right-0"></div>
 
       {/* Login Card */}
@@ -15,7 +15,6 @@ function Login() {
 
         {/* Logo */}
         <div className="flex justify-center items-center gap-3 mb-8">
-
           <div className="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
             B
           </div>
@@ -24,14 +23,12 @@ function Login() {
             BusinessIQ
             <span className="text-blue-600"> AI</span>
           </h1>
-
         </div>
 
         <p className="text-center text-gray-500 mb-8">
           Transforming Business Data into Intelligent Decisions
         </p>
 
-        {/* Heading */}
         <h2 className="text-3xl font-bold text-slate-800">
           Welcome Back 👋
         </h2>
@@ -47,15 +44,13 @@ function Login() {
           </label>
 
           <div className="flex items-center border border-gray-300 rounded-xl px-4 py-3 bg-white focus-within:ring-2 focus-within:ring-blue-500">
-
-            <FaEnvelope className="text-gray-400 mr-3 text-lg" />
+            <FaEnvelope className="text-gray-400 mr-3" />
 
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full outline-none bg-transparent"
+              className="w-full outline-none"
             />
-
           </div>
         </div>
 
@@ -66,79 +61,62 @@ function Login() {
           </label>
 
           <div className="flex items-center border border-gray-300 rounded-xl px-4 py-3 bg-white focus-within:ring-2 focus-within:ring-blue-500">
-
-            <FaLock className="text-gray-400 mr-3 text-lg" />
+            <FaLock className="text-gray-400 mr-3" />
 
             <input
               type="password"
               placeholder="Enter your password"
-              className="w-full outline-none bg-transparent"
+              className="w-full outline-none"
             />
 
-            <IoEyeOutline className="text-gray-500 text-xl cursor-pointer hover:text-blue-600 transition" />
-
+            <IoEyeOutline className="text-gray-500 cursor-pointer text-xl" />
           </div>
         </div>
 
         {/* Remember & Forgot */}
         <div className="flex justify-between items-center mb-6 text-sm">
 
-          <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
-
+          <label className="flex items-center gap-2 text-gray-600">
             <input
               type="checkbox"
               className="accent-blue-600"
             />
-
             Remember Me
-
           </label>
 
-          <a
-            href="#"
-            className="text-blue-600 hover:underline font-medium"
-          >
+          <a href="#" className="text-blue-600 hover:underline">
             Forgot Password?
           </a>
 
         </div>
 
         {/* Login Button */}
-        <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 hover:scale-105 transition duration-300">
+        <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
           Login
         </button>
 
         {/* Divider */}
-        <div className="flex items-center my-7">
-
-          <hr className="flex-1 border-gray-300" />
-
-          <span className="px-4 text-gray-500 font-medium">
-            OR
-          </span>
-
-          <hr className="flex-1 border-gray-300" />
-
+        <div className="flex items-center my-6">
+          <hr className="flex-1" />
+          <span className="px-3 text-gray-500">OR</span>
+          <hr className="flex-1" />
         </div>
 
         {/* Google Button */}
-        <button className="w-full border border-gray-300 py-3 rounded-xl hover:bg-gray-50 transition flex items-center justify-center gap-3">
-
-          <FaGoogle className="text-red-500 text-lg" />
-
+        <button className="w-full border border-gray-300 py-3 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-100 transition">
+          <FaGoogle className="text-red-500" />
           Continue with Google
-
         </button>
 
-        {/* Register */}
-        <p className="text-center mt-7 text-gray-600">
-
+        {/* Register Link */}
+        <p className="text-center mt-6 text-gray-600">
           Don't have an account?{" "}
-
-          <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
+          <Link
+            to="/register"
+            className="text-blue-600 font-semibold hover:underline"
+          >
             Register
-          </span>
-
+          </Link>
         </p>
 
       </div>

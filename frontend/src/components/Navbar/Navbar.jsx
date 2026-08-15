@@ -1,73 +1,101 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaChartLine } from "react-icons/fa";
 
 function Navbar() {
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+    <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 shadow-sm z-50">
 
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <FaChartLine className="text-blue-600 text-3xl" />
-          <h1 className="text-2xl font-bold text-slate-800">
-            BusinessIQ AI
-          </h1>
+      <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+
+        {/* ================= Logo ================= */}
+
+        <Link to="/" className="flex items-center gap-3">
+
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg">
+
+            <FaChartLine className="text-white text-xl" />
+
+          </div>
+
+          <div>
+
+            <h1 className="text-2xl font-bold text-slate-900">
+              BusinessIQ
+              <span className="text-blue-600"> AI</span>
+            </h1>
+
+            <p className="text-xs text-gray-500">
+              AI Business Intelligence
+            </p>
+
+          </div>
+
         </Link>
 
-        {/* Navigation Links */}
-        <ul className="flex gap-8 text-slate-700 font-medium">
+        {/* ================= Navigation ================= */}
 
-          <li>
-            <Link to="/" className="hover:text-blue-600 transition">
-              Home
-            </Link>
-          </li>
+        <nav className="hidden lg:flex items-center gap-10">
 
-          <li>
-            <Link to="/" className="hover:text-blue-600 transition">
-              Services
-            </Link>
-          </li>
+          <NavLink
+            to="/"
+            className="font-medium text-gray-700 hover:text-blue-600 transition"
+          >
+            Home
+          </NavLink>
 
-          <li>
-            <Link to="/dashboard" className="hover:text-blue-600 transition">
-              Dashboard
-            </Link>
-          </li>
+          <a
+            href="#features"
+            className="font-medium text-gray-700 hover:text-blue-600 transition"
+          >
+            Features
+          </a>
 
-          <li>
-            <Link to="/" className="hover:text-blue-600 transition">
-              About
-            </Link>
-          </li>
+          <a
+            href="#solutions"
+            className="font-medium text-gray-700 hover:text-blue-600 transition"
+          >
+            Solutions
+          </a>
 
-          <li>
-            <Link to="/" className="hover:text-blue-600 transition">
-              Contact
-            </Link>
-          </li>
+          <a
+            href="#pricing"
+            className="font-medium text-gray-700 hover:text-blue-600 transition"
+          >
+            Pricing
+          </a>
 
-        </ul>
+          <a
+            href="#contact"
+            className="font-medium text-gray-700 hover:text-blue-600 transition"
+          >
+            Contact
+          </a>
 
-        {/* Buttons */}
-        <div className="flex gap-4">
+        </nav>
 
-          <Link to="/login">
-            <button className="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition">
-              Login
-            </button>
+        {/* ================= Buttons ================= */}
+
+        <div className="flex items-center gap-4">
+
+          <Link
+            to="/login"
+            className="px-6 py-2 rounded-xl border border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300"
+          >
+            Login
           </Link>
 
-          <Link to="/register">
-            <button className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-              Get Started
-            </button>
+          <Link
+            to="/register"
+            className="px-6 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
+          >
+            Get Started
           </Link>
 
         </div>
 
       </div>
-    </nav>
+
+    </header>
   );
 }
 
