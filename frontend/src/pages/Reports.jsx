@@ -42,15 +42,13 @@ function Reports() {
       const formData = new FormData();
 
       formData.append("file", selectedFile);
-
-    const response = await fetch(
+const response = await fetch(
   `${import.meta.env.VITE_API_URL}/api/reports/generate`,
   {
     method: "POST",
     body: formData,
   }
 );
-
       const data = await response.json();
 
       console.log("Report Response:", data);

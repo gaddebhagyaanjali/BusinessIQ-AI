@@ -5,6 +5,7 @@ import Features from "../../components/Features/Features";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import FAQ from "../../components/FAQ/FAQ";
 import CTA from "../../components/CTA/CTA";
+import Footer from "../../components/Footer/Footer";
 function Home() {
   return (
     <>
@@ -15,6 +16,7 @@ function Home() {
       <Testimonials />
       <FAQ />
       <CTA />
+      <Footer />
     </>
   );
 }

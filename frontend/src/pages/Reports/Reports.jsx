@@ -50,7 +50,7 @@ function Reports() {
       formData.append("file", selectedFile);
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/reports/generate",
+        `${import.meta.env.VITE_API_URL}/api/reports/generate`,
         {
           method: "POST",
           body: formData,
