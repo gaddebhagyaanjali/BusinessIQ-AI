@@ -7,7 +7,7 @@ function OverviewCards({ data }) {
       {/* Total Sales */}
       <StatCard
         title="Total Sales"
-        value={`$${Number(data.total_sales || 0).toLocaleString(
+        vvalue={`₹${Number(data.total_sales || 0).toLocaleString(
           "en-US",
           {
             minimumFractionDigits: 2,
@@ -40,7 +40,7 @@ function OverviewCards({ data }) {
       {/* Total Profit */}
       <StatCard
         title="Total Profit"
-        value={`$${Number(data.total_profit || 0).toLocaleString(
+        value={`₹${Number(data.total_profit || 0).toLocaleString(
           "en-US",
           {
             minimumFractionDigits: 2,

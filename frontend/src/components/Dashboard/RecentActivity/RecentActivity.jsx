@@ -4,83 +4,131 @@ function RecentActivity({ data }) {
   const totalCustomers = Number(data?.total_customers || 0);
   const totalProfit = Number(data?.total_profit || 0);
 
+  const formatCurrency = (value) =>
+    `₹${Number(value).toLocaleString("en-IN", {
+      maximumFractionDigits: 0,
+    })}`;
+
   const activities = [
     {
       icon: "📊",
-      text: `Dashboard analyzed ${totalOrders.toLocaleString("en-IN")} transactions`,
+      title: "Transaction analysis completed",
+      description: `${totalOrders.toLocaleString(
+        "en-IN"
+      )} transactions analyzed`,
+      status: "Completed",
     },
     {
       icon: "💰",
-      text: `Total sales reached ₹${totalSales.toLocaleString("en-IN", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}`,
+      title: "Sales performance updated",
+      description: `${formatCurrency(totalSales)} total sales recorded`,
+      status: "Updated",
     },
     {
       icon: "👥",
-      text: `${totalCustomers.toLocaleString("en-IN")} unique customer records identified`,
+      title: "Customer intelligence refreshed",
+      description: `${totalCustomers.toLocaleString(
+        "en-IN"
+      )} customer records identified`,
+      status: "Updated",
     },
     {
       icon: "📈",
-      text: `Total profit calculated as ₹${totalProfit.toLocaleString("en-IN", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}`,
+      title: "Profit analysis completed",
+      description: `${formatCurrency(totalProfit)} total profit calculated`,
+      status: "Completed",
     },
     {
       icon: "🤖",
-      text: "AI business insights generated successfully",
+      title: "AI business analysis generated",
+      description: "Business insights are ready for review",
+      status: "AI Ready",
     },
   ];
 
   return (
-    <div className="bg-white rounded-3xl shadow-lg p-6 h-full">
+    <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg">
 
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex items-start justify-between">
 
-        <div>
-          <h2 className="text-2xl font-bold text-slate-800">
-            📋 Recent Activity
-          </h2>
+        <div className="flex items-center gap-3">
 
-          <p className="text-gray-500 text-sm mt-1">
-            Latest dashboard activity
-          </p>
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-xl">
+            📋
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold text-slate-800">
+              Recent Activity
+            </h2>
+
+            <p className="mt-0.5 text-sm text-slate-500">
+              Latest business intelligence events
+            </p>
+          </div>
+
         </div>
 
-        <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold">
-          Live
-        </span>
+        <div className="flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1.5">
+
+          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+
+          <span className="text-xs font-semibold text-emerald-700">
+            Live
+          </span>
+
+        </div>
 
       </div>
 
-      {/* Activities */}
-      <div className="space-y-4">
+      {/* Activity timeline */}
+      <div className="mt-6">
 
         {activities.map((activity, index) => (
+
           <div
             key={index}
-            className="flex items-center gap-4 border-b pb-4 last:border-b-0"
+            className="relative flex gap-4 pb-6 last:pb-0"
           >
 
+            {/* Timeline line */}
+            {index !== activities.length - 1 && (
+              <div className="absolute left-5 top-11 h-full w-px bg-slate-200" />
+            )}
+
             {/* Icon */}
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-lg">
+            <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-lg shadow-sm">
               {activity.icon}
             </div>
 
-            {/* Activity */}
-            <div>
-              <p className="text-gray-700 font-medium">
-                {activity.text}
+            {/* Content */}
+            <div className="min-w-0 flex-1">
+
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+
+                <h3 className="font-semibold text-slate-800">
+                  {activity.title}
+                </h3>
+
+                <span className="w-fit rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500">
+                  {activity.status}
+                </span>
+
+              </div>
+
+              <p className="mt-1 text-sm leading-5 text-slate-500">
+                {activity.description}
               </p>
 
-              <p className="text-xs text-gray-400 mt-1">
-                Live dashboard data
+              <p className="mt-1 text-xs text-slate-400">
+                BusinessIQ AI
               </p>
+
             </div>
 
           </div>
+
         ))}
 
       </div>

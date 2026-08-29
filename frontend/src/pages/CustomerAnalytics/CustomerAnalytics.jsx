@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
+import DashboardLayout from "../../layouts/DashboardLayout";
+import CustomerChart from "../../components/Dashboard/CustomerChart/CustomerChart";
 
 function CustomerAnalytics() {
   const [selectedFile, setSelectedFile] = useState(null);

@@ -193,7 +193,7 @@ function Dashboard() {
               data={dashboardData}
             />
 
-            <RecentActivity />
+            <RecentActivity data={dashboardData} />
 
           </div>
 
